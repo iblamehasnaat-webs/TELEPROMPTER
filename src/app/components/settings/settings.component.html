@@ -1,0 +1,42 @@
+<div class="p-4 border-b border-gray-300 flex justify-between items-center">
+      <div class="flex space-x-4 items-center">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Font</span>
+          </label>
+          <select class="select select-bordered w-full max-w-xs" [(ngModel)]="settings.font" (change)="saveSettings()">
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+          </select>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Font Size</span>
+          </label>
+          <select class="select select-bordered w-full max-w-xs" [(ngModel)]="settings.fontSize" (change)="saveSettings()">
+            <option value="16">Small</option>
+            <option value="24">Medium</option>
+            <option value="32">Large</option>
+          </select>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Speed</span>
+          </label>
+          <select class="select select-bordered w-full max-w-xs" [(ngModel)]="settings.speed" (change)="saveSettings()">
+            <option value="slow">Slow</option>
+            <option value="medium">Medium</option>
+            <option value="fast">Fast</option>
+          </select>
+        </div>
+      </div>
+      <div class="flex space-x-4 items-center">
+        <button class="btn" [class.btn-active]="settings.horizontalFlip" (click)="toggleHorizontalFlip()">Horizontal Flip</button>
+        <button class="btn" [class.btn-active]="settings.verticalFlip" (click)="toggleVerticalFlip()">Vertical Flip</button>
+        <button class="btn" (click)="toggleTheme()">{{ settings.theme === 'light' ? 'Dark Mode' : 'Light Mode' }}</button>
+      </div>
+    </div>
+    <div class="p-4">
+      <textarea class="textarea textarea-bordered w-full h-32" placeholder="Enter your text here..." [(ngModel)]="text" (input)="saveText()" (ngModelChange)="onTextChange($event)"></textarea>
+    </div>

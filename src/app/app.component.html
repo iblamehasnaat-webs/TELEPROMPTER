@@ -1,0 +1,4 @@
+<div class="flex flex-col h-screen">
+      <app-settings (settingsChange)="onSettingsChange($event)" (textChange)="onTextChange($event)"></app-settings>
+      <app-teleprompter [settings]="currentSettings" [text]="currentText"></app-teleprompter>
+    </div>
